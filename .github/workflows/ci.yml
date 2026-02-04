@@ -1,0 +1,17 @@
+name: Self-hosted runner test
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Echo runner info
+        run: |
+          echo "Running on self-hosted Windows runner"
+          hostname
