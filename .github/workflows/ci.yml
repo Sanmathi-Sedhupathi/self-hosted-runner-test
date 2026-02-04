@@ -11,7 +11,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Echo runner info
-        run: |
-          echo "Running on self-hosted Windows runner"
-          hostname
+      - name: Echo using CMD
+        shell: cmd
+        run: echo Running on self-hosted Windows runner
