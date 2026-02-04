@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Update files on runner
-        shell: powershell
+        shell: powershell -ExecutionPolicy Bypass
         run: |
           $deployPath = "C:\actions-runner\_work\self-hosted-runner-test\self-hosted-runner-test"
           if (-not (Test-Path $deployPath)) {
