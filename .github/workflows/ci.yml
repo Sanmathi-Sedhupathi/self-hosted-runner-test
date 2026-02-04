@@ -11,6 +11,17 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Update files on runner
+        shell: powershell
+        run: |
+          $deployPath = "C:\actions-runner\_work\self-hosted-runner-test\self-hosted-runner-test"
+          if (-not (Test-Path $deployPath)) {
+            New-Item -ItemType Directory -Path $deployPath -Force | Out-Null
+          }
+          Copy-Item -Path "${{ github.workspace }}\*" -Destination $deployPath -Recurse -Force
+          Write-Host "Files updated at $deployPath"
+          Get-ChildItem -Path $deployPath -Recurse | Write-Host
+
       - name: Echo using CMD
         shell: cmd
         run: echo Running on self-hosted Windows runner
