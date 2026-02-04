@@ -15,7 +15,7 @@ jobs:
         shell: cmd
         run: |
           setlocal enabledelayedexpansion
-          set "deployPath=C:\actions-runner\_work\self-hosted-runner-test\self-hosted-runner-test"
+          set "deployPath=C:\Users\hp\Desktop\EQREV_JOBS"
           if not exist "!deployPath!" mkdir "!deployPath!"
           xcopy "${{ github.workspace }}\*" "!deployPath!" /E /Y /I
           echo Files updated at !deployPath!
